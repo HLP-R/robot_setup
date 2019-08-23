@@ -45,7 +45,7 @@
   # - Elaine Short
   # - Adam Allevato
 
-  # Copyright 2019 The Authors (see below)
+  # Copyright 2019 The Authors (see above)
   # Copyright 2019 Socially Intelligent Machines Lab
   # Copyright 2019 The University of Texas at Austin
   # All rights reserved.
@@ -221,7 +221,7 @@ WORKSPACE_PATH="~/catkin_ws/src"
 # Install ROS
 # Install ROS Kinetic using the instructions from http://wiki.ros.org/kinetic/Installation/Ubuntu
 # Also installs catkin tools, which is a better version of catkin_make
-# Required for all machines.
+# Required for all machines. Not needed when setting up an additional user.
 #-------------------------------------------------------------------------------
 # sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 # sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
@@ -236,7 +236,7 @@ WORKSPACE_PATH="~/catkin_ws/src"
 
 #-------------------------------------------------------------------------------
 # Quality-of-life tools and settings
-# Recommended for all machines.
+# Recommended for all machines. Not needed when setting up an additional user.
 #-------------------------------------------------------------------------------
 # # For mobile bases, can be useful on development machines too:
 # # These packages allow easily teleoperating the robot using the keyboard or a
@@ -289,7 +289,7 @@ WORKSPACE_PATH="~/catkin_ws/src"
 # Create a catkin workspace in your home directory. You can change the location
 # to whatever you'd like, but we suggest the default.
 # After these commands, the working directory should be the source folder.
-# Required for all machines.
+# Required for all machines and users.
 #-------------------------------------------------------------------------------
 # mkdir -p $WORKSPACE_PATH
 # cd $WORKSPACE_PATH
@@ -298,7 +298,7 @@ WORKSPACE_PATH="~/catkin_ws/src"
 #-------------------------------------------------------------------------------
 # Poli2 Repository
 # Get the base poli2 platform code. Mostly launch files and robot descriptions.
-# Required for all machines.
+# Required for all machines and users.
 #-------------------------------------------------------------------------------
 # git clone https://github.com/si-machines/poli2.git -b master
 
@@ -341,7 +341,7 @@ WORKSPACE_PATH="~/catkin_ws/src"
 #-------------------------------------------------------------------------------
 # Get HLP-R Code
 # Now we get the HLP-R code itself, again with some modifications.
-# Recommended for all machines
+# Recommended for all machines and users
 #-------------------------------------------------------------------------------
 # # touch hlpr_robots/hlpr_poli/CATKIN_IGNORE
 # # utility packages for moving the arm.
@@ -363,7 +363,7 @@ WORKSPACE_PATH="~/catkin_ws/src"
 #-------------------------------------------------------------------------------
 # Setup Onboard Robot Machine
 # Cleans up unnecessary directories and installs a useful desktop background.
-# Required for onboard robot computers, optional for development machines.
+# Required for onboard robot computer users, optional for development machines.
 #-------------------------------------------------------------------------------
 # # This file contains a number of environment variables that help define the
 # # robot configuration.
@@ -396,8 +396,8 @@ WORKSPACE_PATH="~/catkin_ws/src"
 # Setup Onboard Robot Machine (Main Acount)
 # Install udev rules. udev rules allows our launch files to find peripherals
 # like the head motors, gripper, and camera.
-# Required ONLY for the "main" account on an onboard robot machine.
-# Do not use for other accounts on these computers or for development machines.
+# Required, but ONLY for the "main" account on an onboard robot machine.
+# DO NOT use for other accounts on these computers or for development machines.
 # i.e. run it on moe@moe1 and barton@barton2, but not adam@moe1 or taylor@lupe2.
 #-------------------------------------------------------------------------------
 # # Clear your current udev rules
@@ -466,7 +466,7 @@ WORKSPACE_PATH="~/catkin_ws/src"
 
 #-------------------------------------------------------------------------------
 # Post-Code Steps
-# Required for all machines.
+# Required for all machines and users
 #-------------------------------------------------------------------------------
 # # Automatically find and install needed dependencies
 # rosdep install --from-paths . --ignore-src --rosdistro=kinetic -y
