@@ -6,7 +6,7 @@ To get started:
     ```
     sudo apt-get install -yq git
     cd ~
-    git clone https://github.com/si-machines/robot_setup.git;
+    git clone https://github.com/si-machines/robot_setup.git
     ```
 2. Open `robot_setup/setup.sh` and follow the instructions to edit it.
 3. Run `bash robot_setup/setup.sh`.
