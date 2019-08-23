@@ -1,12 +1,12 @@
+# SIM Lab Machine Setup
 This repository has information on how to get setup to develop on or with the robots.
 
-To get started:
+# Setup Steps
 
-1. Run the following commands:
+1. Run the following commands in a new terminal:
     ```
     sudo apt-get install -yq git
-    cd ~
-    git clone https://github.com/si-machines/robot_setup.git
+    git clone https://github.com/si-machines/robot_setup.git ~/robot_setup
     ```
-2. Open `robot_setup/setup.sh` and follow the instructions to edit it.
-3. Run `bash robot_setup/setup.sh`.
+2. Open `~/robot_setup/setup.sh` in a text editor and follow the instructions to edit it.
+3. Run `bash robot_setup/setup.sh` from a terminal.
