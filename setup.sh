@@ -1,15 +1,15 @@
 #!/bin/bash
 ################################################################################
-#             ____       _ _   ____    ____       _                            #
-#            |  _ \ ___ | (_) |___ \  / ___|  ___| |_ _   _ _ __               #
-#            | |_) / _ \| | |   __) | \___ \ / _ \ __| | | | '_ \              #
-#            |  __/ (_) | | |  / __/   ___) |  __/ |_| |_| | |_) |             #
-#            |_|   \___/|_|_| |_____| |____/ \___|\__|\__,_| .__/              #
-#                                                          |_|                 #
+##            ____       _ _   ____    ____       _                           ##
+##           |  _ \ ___ | (_) |___ \  / ___|  ___| |_ _   _ _ __              ##
+##           | |_) / _ \| | |   __) | \___ \ / _ \ __| | | | '_ \             ##
+##           |  __/ (_) | | |  / __/   ___) |  __/ |_| |_| | |_) |            ##
+##           |_|   \___/|_|_| |_____| |____/ \___|\__|\__,_| .__/             ##
+##                                                         |_|                ##
 ################################################################################
 
 ################################################################################
-# A. INTRODUCTION
+## A. INTRODUCTION
 ################################################################################
  # This script contains all the commands you need to set up a new
  #   COMPUTER OR USER ONBOARD POLI 2
@@ -25,10 +25,10 @@
  #   2. Go to Part F: COMMANDS
  #     a. Read, or at least skim, all the command sections
  #     b. If you want to run a certain set of commands, un-comment it by
- #        removing the # at the start of the line.
- #     c. If a line has two ## at the start, only remove one of them.
+ #        removing the # at the start of the line. Lines with two hashes (##)
+ #        are instructions, lines with one hash are commands you can uncomment.
  #   5. Remove or comment out the Blocker at the start of Part D.
- #   6. Run the file using the command `bash ./setup.sh`
+ #   6. The file is now ready to run.
  #   7. If a step does not run, fix it.
  #     a. If you cannot fix it, leave a note as a comment that it may not work
  #     b. If it already has a comment that it doesn't work, and you can't fix
@@ -38,7 +38,7 @@
  #   9. Commit and push your changes to the script immediately after using it.
 
 ################################################################################
-# B. AUTHOR AND COPYRIGHT INFORMATION
+## B. AUTHOR AND COPYRIGHT INFORMATION
 ################################################################################
   # Authors:
   # - Elaine Short
@@ -76,7 +76,7 @@
   # POSSIBILITY OF SUCH DAMAGE.
 
 ################################################################################
-# C. WHY IS THIS FILE SET UP THE WAY IT IS?
+## C. WHY IS THIS FILE SET UP THE WAY IT IS?
 ################################################################################
   # Short answer: because we tried everything else and this seemed like the best
   # way to do a set up script. Nothing else worked well as a permanent solution.
@@ -146,103 +146,97 @@
   # https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/
 
 ################################################################################
-# D. PRELIMINARIES
+## D. PRELIMINARIES
 ################################################################################
-#-------------------------------------------------------------------------------
-# Blocker
-# Stops the script from running if you haven't read it.
-# Comment out this section to actually run the file.
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
+## Blocker
+## Stops the script from running if you haven't read it.
+## Comment out this section to actually run the file.
+##------------------------------------------------------------------------------
 
 echo "Please read and edit this setup script before running it."
 read -p "Press enter to exit."
 exit 1
 
-#-------------------------------------------------------------------------------
-# Bash Definitions
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
+## (End of Blocker)
+## Bash Definitions
+##------------------------------------------------------------------------------
 #
-set -e
+set -ev
 
-#-------------------------------------------------------------------------------
-# Useful Functions
-#-------------------------------------------------------------------------------
-# error-handling function.
-# For more info, see https://stackoverflow.com/a/25515370/171159
-die() { yell "$*"; exit 111; }
+##------------------------------------------------------------------------------
+## A basic check to the user to make sure this will work.
+##------------------------------------------------------------------------------
+echo "You must have a GitHub user account with pull access to the" \
+     " si-machines organization."
+read -p "Press enter to continue with installation. It may take some time."
 
 
-#-------------------------------------------------------------------------------
-# Basic Utilities
-# Prepare your apt repository and install crucial dependencies
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
+## Basic Utilities
+## Prepare your apt repository and install crucial dependencies
+##------------------------------------------------------------------------------
 sudo apt-get update && sudo apt-get -y upgrade
 sudo apt-get install -yq \
   apt-transport-https \
   apt-utils \
   wget
 
-#-------------------------------------------------------------------------------
-# Find the computer's name automatically
-# This might be something like "moe1" or "barton2", or it may be a different
-# name like "dijkstra".
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
+## Find the computer's name automatically
+## This might be something like "moe1" or "barton2", or it may be a different
+## name like "dijkstra".
+##------------------------------------------------------------------------------
 COMPUTER_NAME=`hostname`
 
-#-------------------------------------------------------------------------------
-# A basic checks to the user to make sure this will work.
-#-------------------------------------------------------------------------------
-echo "You must have a GitHub user account with pull access to the" \
-     " si-machines organization."
-read -p "Press enter to continue."
-
-
 ################################################################################
-# E. VARIABLES
+## E. VARIABLES
 ################################################################################
-#-------------------------------------------------------------------------------
-# Fill in the name of the robot you're working with below
-# (all lowercase, no spaces, in quotes).
-# Use "moe" or "barton" etc.
-# DO NOT use "moe1" or "moe2" or your desktop name
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
+## Fill in the name of the robot you're working with below
+## (all lowercase, no spaces, in quotes).
+## Use "moe" or "barton" etc.
+## DO NOT use "moe1" or "moe2" or your desktop name
+##------------------------------------------------------------------------------
 ROBOT_NAME="your_robot_name_here"
 
-#-------------------------------------------------------------------------------
-# This is where your ROS packages will go. If you'd like, you can change this,
-# but we suggest using the default.
-#-------------------------------------------------------------------------------
-WORKSPACE_PATH="~/catkin_ws/src"
+##------------------------------------------------------------------------------
+## This is where your ROS packages will go. If you'd like, you can change this,
+## but we suggest using the default.
+##------------------------------------------------------------------------------
+WORKSPACE_PATH="${HOME}/catkin_ws/src"
 
 # You're done with this section. Go back to the top of the file and continue
 # with the main instructions.
 
 ################################################################################
-# F. COMMANDS
+## F. COMMANDS
 ################################################################################
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 # Install ROS
 # The commands below will install ROS Kinetic.
 # These are the same steps that are listed at the website
 # http://wiki.ros.org/kinetic/Installation/Ubuntu.
 # Also installs catkin tools, which is a better version of catkin_make
 # Required for all machines. Not needed when setting up an additional user.
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 #sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-#sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+#sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 #sudo apt-get update
 #sudo apt-get install -yq \
 #  python-catkin-tools \
 #  python-wstool \
 #  ros-kinetic-desktop-full
+#sudo rm -f /etc/ros/rosdep/sources.list.d/20-default.list
 #sudo rosdep init
 #rosdep update
 #source /opt/ros/kinetic/setup.bash
 
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 # Quality-of-life tools and settings
 # Recommended for all machines. Not needed when setting up an additional user.
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 ## For mobile bases, can be useful on development machines too:
 ## These packages allow easily teleoperating the robot using the keyboard or a
 ## joystick.
@@ -258,13 +252,10 @@ WORKSPACE_PATH="~/catkin_ws/src"
 #wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 #echo "deb https://download.sublimetext.com/ apt/dev/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 ## visual studio code editor (from https://code.visualstudio.com/docs/setup/linux)
-#curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-#sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-#sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+#sudo snap install --classic code
 ## now install everything
 #sudo apt-get update
 #sudo apt-get install -yq \
-#  code \ # or code-insiders
 #  curl \
 #  emacs \
 #  geany \
@@ -289,36 +280,38 @@ WORKSPACE_PATH="~/catkin_ws/src"
 ## required for robot machines
 #sudo apt-get install -yq openssh-server
 
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 # Create Workspace
-# Create a catkin workspace in your home directory. You can change the location
-# to whatever you'd like, but we suggest the default.
+# These commands create a catkin workspace in your home directory (or somewhere
+# else if you changed the $WORKSPACE PATH earlier).
 # After these commands, the working directory should be the source folder.
 # Required for all machines and users.
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
+#rm -f $WORKSPACE_PATH
 #mkdir -p $WORKSPACE_PATH
 #cd $WORKSPACE_PATH
 #catkin_init_workspace
 
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 # Poli2 Repository
-# Get the base poli2 platform code. Mostly launch files and robot descriptions.
+# This command downloads the base poli2 platform code. Mostly launch files and
+# robot descriptions.
 # Required for all machines and users.
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 #git clone https://github.com/si-machines/poli2.git -b master
 
-#-------------------------------------------------------------------------------
-# Get HLP-R Dependencies
+##------------------------------------------------------------------------------
+# HLP-R Dependencies Installation
 # HLP-R is common code shared between us, Georgia Tech, and the PeARL lab.
 # It has a number of dependencies. For some of these dependencies, we've had
 # to create our own versions to fix bugs or stay compatible with our own code.
+# These commands download all that code.
 # Recommended for all machines.
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 ## control the Kinova Jaco arm
 #git clone https://github.com/si-machines/kinova-ros.git -b moe-devel
 ## ignore a number of sub-packages that we don't need and cause conflicts
 #touch kinova-ros/kinova_moveit/CATKIN_IGNORE
-#touch kinova-ros/kinova_moveit_demo/kinova_arm_moveit_demo/CATKIN_IGNORE
 #git clone https://github.com/si-machines/wpi_jaco.git -b develop
 ## only part of the above package is needed.
 ## ignore a number of sub-packages that we don't need and cause conflicts
@@ -332,23 +325,19 @@ WORKSPACE_PATH="~/catkin_ws/src"
 ## Used to control the head tilt motor (up/down). We need a specific branch
 #git clone https://github.com/RIVeR-Lab/epos_hardware.git -b kinetic-devel
 ## controls head pan motor (side to side)
-#git clone https://github.com/ROBOTIS-GIT/DynamixelSDK.git -b tags/3.5.4
+#git clone https://github.com/ROBOTIS-GIT/DynamixelSDK.git -b 3.5.4
 #git clone https://github.com/si-machines/dynamixel-workbench.git -b master
 #git clone https://github.com/si-machines/dynamixel-workbench-msgs.git -b master
 ## Delete a conflicting version of the dynamixel code that comes with apt-get
 ## If you clone the packages above you should also uncomment this line.
 #sudo apt-get purge ros-kinetic-dynamixel-workbench-toolbox
-## we need a specific version of the package above for backwards compatibility
-#(git config --global advice.detachedHead false && \
-#  cd DynamixelSDK && git checkout tags/3.5.4 && \
-#  git config --global advice.detachedHead true)
 
-#-------------------------------------------------------------------------------
-# Get HLP-R Code
-# Now we get the HLP-R code itself, again with some modifications.
+
+##------------------------------------------------------------------------------
+# HLP-R Code Installation
+# These commands get the HLP-R code itself, again with some modifications.
 # Recommended for all machines and users
-#-------------------------------------------------------------------------------
-## touch hlpr_robots/hlpr_poli/CATKIN_IGNORE
+##------------------------------------------------------------------------------
 ## utility packages for moving the arm.
 #git clone https://github.com/HLP-R/hlpr_manipulation.git -b kinetic-devel
 ## don't use robot configurations that use the vector base
@@ -365,65 +354,68 @@ WORKSPACE_PATH="~/catkin_ws/src"
 ## Utility packages for turning the head
 #git clone https://github.com/HLP-R/hlpr_lookat.git -b kinetic-devel
 
-#-------------------------------------------------------------------------------
-# Setup Onboard Robot Machine
+##------------------------------------------------------------------------------
+# Onboard Robot Machine Setup
 # Cleans up unnecessary directories and installs a useful desktop background.
 # Required for onboard robot computer users, optional for development machines.
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 ## This file contains a number of environment variables that help define the
-## robot configuration.
+## robot configuration. The following four lines are all one command.
 #echo "
-## Source useful environment variables that define the robot platform.
-## These lines were added by the Poli2 setup.sh script.
+#  # Source useful environment variables that define the robot platform.
+#  # These lines were added by the Poli2 setup.sh script.
 #source ${WORKSPACE_PATH}/src/poli2/poli2_launch/config/poli_RMP.bash" >> ~/.bashrc
 
-## creates a custom desktop background based on the computer hostname
+## these commands create a custom desktop background based on the hostname
 ## recommended for robot machines
 #convert -size 1920x1080 xc:"#222222" -font "Ubuntu" -fill white \
-#  -pointsize 128 -annotate +100+1050 "${COMPUTER_NAME}" \
-#  -pointsize 11 -annotate +3+1010 "${COMPUTER_NAME}" \
+#  -pointsize 128 -annotate +100+1050 "${COMPUTER_NAME}/${USER}" \
+#  -pointsize 10 -annotate +3+1010 "${COMPUTER_NAME}/${USER}" \
 #  ${HOME}/${COMPUTER_NAME}_bg_image.png
 #gsettings set org.gnome.desktop.background picture-uri "file://${HOME}/${COMPUTER_NAME}_bg_image.png"
 
-## Delete useless folders - if they're empty
-#rmdir ~/Documents
-#rmdir ~/Music
-#rmdir ~/Pictures
-#rmdir ~/Public
-#rmdir ~/Templates
-#rmdir ~/Videos
-#rm examples.desktop
+## Delete useless folders - if they're empty and exist
+if [ -d "${HOME}/Documents" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Documents"; fi
+if [ -d "${HOME}/Music" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Music"; fi
+if [ -d "${HOME}/Pictures" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Pictures"; fi
+if [ -d "${HOME}/Public" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Public"; fi
+if [ -d "${HOME}/Templates" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Templates"; fi
+if [ -d "${HOME}/Videos" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Videos"; fi
+#rm -f ${HOME}/examples.desktop
 
 ## Clean up the Unity launcher
 #gsettings set com.canonical.Unity.Launcher favorites "['application://firefox.desktop']"
 
-#-------------------------------------------------------------------------------
-# Setup Onboard Robot Machine (Main Acount)
+##------------------------------------------------------------------------------
+# Onboard Robot Machine Setup (Main Acount)
 # Install udev rules. udev rules allows our launch files to find peripherals
 # like the head motors, gripper, and camera.
 # Required, but ONLY for the "main" account on an onboard robot machine.
 # DO NOT use for other accounts on these computers or for development machines.
 # i.e. run it on moe@moe1 and barton@barton2, but not adam@moe1 or taylor@lupe2.
-#-------------------------------------------------------------------------------
-## Clear your current udev rules
-#sudo rm /etc/udev/rules.d/10-local.rules
+##------------------------------------------------------------------------------
 ## add udev rule for kinova arm
+#sudo rm -f /etc/udev/rules.d/10-kinova-arm.rules
 #sudo ln -s ${WORKSPACE_PATH}/kinova-ros/kinova_driver/udev/10-kinova-arm.rules \
 #  /etc/udev/rules.d/10-kinova-arm.rules
 ## Add udev rule for epos motor
+#sudo rm -f /etc/udev/rules.d/90-ftd2xx.rules
 #sudo ln -s ${WORKSPACE_PATH}/epos_hardware/epos_hardware/90-ftd2xx.rules \
 #  /etc/udev/rules.d/90-ftd2xx.rules
 ## Other peripherals
+#sudo rm -f /etc/udev/rules.d/10-local.rules
 #sudo ln -s ${WORKSPACE_PATH}/poli2/setup/${ROBOT_NAME}/udev.rules \
 #  /etc/udev/rules.d/10-local.rules
 
-#-------------------------------------------------------------------------------
-# Download Platform-Specific code
+##------------------------------------------------------------------------------
+# Platform-Specific Code Installation
 # Onboard machines only, different parts required depending on your platform.
-#-------------------------------------------------------------------------------
-## If using an Intel RealSense camera (usually if you're on a machine2 onboard
-## machine), use this code to install code and dependencies for it.
-## Instructions from https://github.com/intel-ros/realsense.
+##------------------------------------------------------------------------------
+## If using an Intel RealSense camera, these commands will install code and
+## dependencies for it.
+## The instructions are from https://github.com/intel-ros/realsense.
+## Required if a RealSense is plugged into this machine. Usually, this is for
+## "machine2" computers, like "moe2" and "lupe2", but NOT for "moe1" or "lupe1".
 #sudo apt-key adv --keyserver keys.gnupg.net --recv-key C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C8B3A55A6F3EFCDE
 #sudo add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo xenial main" -u
 #sudo rm -f /etc/apt/sources.list.d/realsense-public.list.
@@ -445,17 +437,17 @@ WORKSPACE_PATH="~/catkin_ws/src"
 ## Fixes annoying warnings related to hector_pose_estimation XML from being printed.
 #sudo wget https://raw.githubusercontent.com/tu-darmstadt-ros-pkg/hector_localization/catkin/hector_pose_estimation/hector_pose_estimation_nodelets.xml -P /opt/ros/kinetic/share/hector_pose_estimation/
 
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 # Extra HLP-R packages
-# Additional HLP-R related packages that may be useful.
+# Additional HLP-R related packages that may be useful. These commands are only
+# here for reference
 # Optional, use on case-by-case basis.
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 ## The simulator is Vector-only (i.e. Poli1)...for now
 #git clone https://github.com/HLP-R/hlpr_simulator.git -b kinetic-devel
 
 ## hlpr_perception also exists, but it doesn't work very well and may not build.
-## It contains some older code that may or may not still be usable, so we
-## keep it around.
+## It contains some older code that may or may not still be usable.
 #git clone https://github.com/HLP-R/hlpr_perception.git
 
 ## In the future, you should use ORP (object recognition and perception) for
@@ -469,10 +461,10 @@ WORKSPACE_PATH="~/catkin_ws/src"
 ## The following package should only be needed for Poli1
 #git clone https://github.com/HLP-R/hlpr_robots.git -b kinetic-devel
 
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 # Post-Code Steps
 # Required for all machines and users
-#-------------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 ## Automatically find and install needed dependencies
 #rosdep install --from-paths . --ignore-src --rosdistro=kinetic -y
 
@@ -485,11 +477,14 @@ WORKSPACE_PATH="~/catkin_ws/src"
 
 ## Add useful shortcuts to your bashrc so they are automatically accessible
 ## For more details, read shortcuts.bash (at the path below).
-# echo "
+#echo "
 #source ${WORKSPACE_PATH}/src/poli2/setup/shortcuts.bash" >> ~/.bashrc
 ## The ROBOT_NAME environment variable is checked by a few different packages
 ## so that they know whether to use behavior for Poli2, Poli1, or a simulated
 ## 2D arm.
 #echo "
 #export ROBOT_NAME='poli2'
-## " >> ~/.bashrc
+#" >> ~/.bashrc
+
+## You're done with this section! Go back to the top of the file and continue
+## the instructions.
