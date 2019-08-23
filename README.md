@@ -8,5 +8,6 @@ This repository has information on how to get setup to develop on or with the ro
     sudo apt-get install -yq git
     git clone https://github.com/si-machines/robot_setup.git ~/robot_setup
     ```
-2. Open `~/robot_setup/setup.sh` in a text editor and follow the instructions to edit it.
-3. Run `bash robot_setup/setup.sh` from a terminal.
+2. Run `gedit ~/robot_setup/setup.sh` to open the setup script in a text editor.
+3. Follow the instructions in the setup script to edit it.
+3. Run `bash robot_setup/setup.sh` to run the setup.
