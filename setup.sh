@@ -202,17 +202,19 @@ read -p "Press enter to continue."
 # E. VARIABLES
 ################################################################################
 #-------------------------------------------------------------------------------
-# What is the name of the robot you're working with? (all lowercase, no spaces)
+# Fill in the name of the robot you're working with (all lowercase, no spaces).
 # Use "moe" or "barton" etc., not "moe1" or "moe2" or your desktop name
 #-------------------------------------------------------------------------------
 ROBOT_NAME=""
 
 #-------------------------------------------------------------------------------
-# Where your ROS packages will go. You can change the location
-# to whatever you'd like, but we suggest the default.
+# This is where your ROS packages will go. If you'd like, you can change this,
+# but we suggest using the default.
 #-------------------------------------------------------------------------------
 WORKSPACE_PATH="~/catkin_ws/src"
 
+# You're done with this section. Go back to the top of the file and continue
+# with the main instructions.
 
 ################################################################################
 # F. COMMANDS
