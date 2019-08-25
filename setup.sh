@@ -375,12 +375,12 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #gsettings set org.gnome.desktop.background picture-uri "file://${HOME}/${COMPUTER_NAME}_bg_image.png"
 
 ## Delete useless folders - if they're empty and exist
-if [ -d "${HOME}/Documents" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Documents"; fi
-if [ -d "${HOME}/Music" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Music"; fi
-if [ -d "${HOME}/Pictures" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Pictures"; fi
-if [ -d "${HOME}/Public" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Public"; fi
-if [ -d "${HOME}/Templates" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Templates"; fi
-if [ -d "${HOME}/Videos" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Videos"; fi
+#if [ -d "${HOME}/Documents" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Documents"; fi
+#if [ -d "${HOME}/Music" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Music"; fi
+#if [ -d "${HOME}/Pictures" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Pictures"; fi
+#if [ -d "${HOME}/Public" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Public"; fi
+#if [ -d "${HOME}/Templates" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Templates"; fi
+#if [ -d "${HOME}/Videos" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Videos"; fi
 #rm -f ${HOME}/examples.desktop
 
 ## Clean up the Unity launcher
