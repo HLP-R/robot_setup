@@ -12,4 +12,4 @@ This repository has information on how to get setup to develop on or with the ro
 1. Run `gedit ~/robot_setup/setup.sh` to open the setup script in a text editor.
 1. Follow the instructions in the setup script to edit it.
 1. Don't forget to save!
-1. Run `sudo bash robot_setup/setup.sh` to run the setup.
+1. Run `bash ~/robot_setup/setup.sh` to run the setup.

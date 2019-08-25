@@ -181,6 +181,11 @@ read -p "Press enter to continue with installation. It may take some time."
 
 
 ##------------------------------------------------------------------------------
+## Force starting in the home directory
+##------------------------------------------------------------------------------
+cd ${HOME}
+
+##------------------------------------------------------------------------------
 ## Basic Utilities
 ## Prepare your apt repository and install crucial dependencies
 ##------------------------------------------------------------------------------
@@ -214,12 +219,12 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 ## F. COMMANDS
 ################################################################################
 ##------------------------------------------------------------------------------
-# Install ROS
-# The commands below will install ROS Kinetic.
-# These are the same steps that are listed at the website
-# http://wiki.ros.org/kinetic/Installation/Ubuntu.
-# Also installs catkin tools, which is a better version of catkin_make
-# Required for all machines and users.
+## Install ROS
+## The commands below will install ROS Kinetic.
+## These are the same steps that are listed at the website
+## http://wiki.ros.org/kinetic/Installation/Ubuntu.
+## Also installs catkin tools, which is a better version of catkin_make
+## Required for all machines and users.
 ##------------------------------------------------------------------------------
 #sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 #sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
@@ -234,8 +239,8 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #source /opt/ros/kinetic/setup.bash
 
 ##------------------------------------------------------------------------------
-# Quality-of-life tools and settings
-# Highly recommended for all machines.
+## Quality-of-life tools and settings
+## Highly recommended for all machines.
 ##------------------------------------------------------------------------------
 ## For mobile bases, can be useful on development machines too:
 ## These packages allow easily teleoperating the robot using the keyboard or a
@@ -296,11 +301,11 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #sudo apt-get install -yq openssh-server
 
 ##------------------------------------------------------------------------------
-# Create Workspace
-# These commands create a catkin workspace in your home directory (or somewhere
-# else if you changed the $WORKSPACE PATH earlier).
-# After these commands, the working directory should be the source folder.
-# Required for all machines and users.
+## Create Workspace
+## These commands create a catkin workspace in your home directory (or somewhere
+## else if you changed the $WORKSPACE PATH earlier).
+## After these commands, the working directory should be the source folder.
+## Required for all machines and users.
 ##------------------------------------------------------------------------------
 #if [ -d "${WORKSPACE_PATH}" ]
 #then
@@ -315,20 +320,20 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #catkin_init_workspace
 
 ##------------------------------------------------------------------------------
-# Poli2 Repository
-# This command downloads the base poli2 platform code. Mostly launch files and
-# robot descriptions.
-# Required for all machines and users.
+## Poli2 Repository
+## This command downloads the base poli2 platform code. Mostly launch files and
+## robot descriptions.
+## Required for all machines and users.
 ##------------------------------------------------------------------------------
 #git clone https://github.com/si-machines/poli2.git -b master
 
 ##------------------------------------------------------------------------------
-# HLP-R Dependencies Installation
-# HLP-R is common code shared between us, Georgia Tech, and the PeARL lab.
-# It has a number of dependencies. For some of these dependencies, we've had
-# to create our own versions to fix bugs or stay compatible with our own code.
-# These commands download all that code.
-# Recommended for all machines.
+## HLP-R Dependencies Installation
+## HLP-R is common code shared between us, Georgia Tech, and the PeARL lab.
+## It has a number of dependencies. For some of these dependencies, we've had
+## to create our own versions to fix bugs or stay compatible with our own code.
+## These commands download all that code.
+## Recommended for all machines.
 ##------------------------------------------------------------------------------
 ## control the Kinova Jaco arm
 #git clone https://github.com/si-machines/kinova-ros.git -b moe-devel
@@ -355,9 +360,9 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 
 
 ##------------------------------------------------------------------------------
-# HLP-R Code Installation
-# These commands get the HLP-R code itself, again with some modifications.
-# Recommended for all machines and users
+## HLP-R Code Installation
+## These commands get the HLP-R code itself, again with some modifications.
+## Recommended for all machines and users
 ##------------------------------------------------------------------------------
 ## utility packages for moving the arm.
 #git clone https://github.com/HLP-R/hlpr_manipulation.git -b kinetic-devel
@@ -376,9 +381,9 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #git clone https://github.com/HLP-R/hlpr_lookat.git -b kinetic-devel
 
 ##------------------------------------------------------------------------------
-# Onboard Robot Machine Setup
-# Cleans up unnecessary directories and installs a useful desktop background.
-# Required for onboard robot computer users, optional for development machines.
+## Onboard Robot Machine Setup
+## Cleans up unnecessary directories and installs a useful desktop background.
+## Required for onboard robot computer users, optional for development machines.
 ##------------------------------------------------------------------------------
 ## This file contains a number of environment variables that help define the
 ## robot configuration. The following four lines are all one command.
@@ -408,12 +413,12 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #gsettings set com.canonical.Unity.Launcher favorites "['application://firefox.desktop']"
 
 ##------------------------------------------------------------------------------
-# Onboard Robot Machine Setup (Main Acount)
-# Install udev rules. udev rules allows our launch files to find peripherals
-# like the head motors, gripper, and camera.
-# Required, but ONLY for the "main" account on an onboard robot machine.
-# DO NOT use for other accounts on these computers or for development machines.
-# i.e. run it on moe@moe1 and barton@barton2, but not adam@moe1 or taylor@lupe2.
+## Onboard Robot Machine Setup (Main Acount)
+## Install udev rules. udev rules allows our launch files to find peripherals
+## like the head motors, gripper, and camera.
+## Required, but ONLY for the "main" account on an onboard robot machine.
+## DO NOT use for other accounts on these computers or for development machines.
+## i.e. run it on moe@moe1 and barton@barton2, but not adam@moe1 or taylor@lupe2.
 ##------------------------------------------------------------------------------
 ## add udev rule for kinova arm
 #sudo rm -f /etc/udev/rules.d/10-kinova-arm.rules
@@ -433,8 +438,8 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #sudo udevadm trigger
 
 ##------------------------------------------------------------------------------
-# Platform-Specific Code Installation
-# Onboard machines only, different parts required depending on your platform.
+## Platform-Specific Code Installation
+## Onboard machines only, different parts required depending on your platform.
 ##------------------------------------------------------------------------------
 ## If using an Intel RealSense camera, these commands will install code and
 ## dependencies for it.
@@ -463,10 +468,10 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #sudo wget https://raw.githubusercontent.com/tu-darmstadt-ros-pkg/hector_localization/catkin/hector_pose_estimation/hector_pose_estimation_nodelets.xml -P /opt/ros/kinetic/share/hector_pose_estimation/
 
 ##------------------------------------------------------------------------------
-# Extra HLP-R packages
-# Additional HLP-R related packages that may be useful. These commands are only
-# here for reference
-# Optional, use on case-by-case basis.
+## Extra HLP-R packages
+## Additional HLP-R related packages that may be useful. These commands are only
+## here for reference
+## Optional, use on case-by-case basis.
 ##------------------------------------------------------------------------------
 ## The simulator is Vector-only (i.e. Poli1)...for now
 #git clone https://github.com/HLP-R/hlpr_simulator.git -b kinetic-devel
@@ -487,8 +492,8 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #git clone https://github.com/HLP-R/hlpr_robots.git -b kinetic-devel
 
 ##------------------------------------------------------------------------------
-# Post-Code Steps
-# Required for all machines and users
+## Post-Code Steps
+## Required for all machines and users
 ##------------------------------------------------------------------------------
 ## Automatically find and install needed dependencies
 #rosdep install --from-paths . --ignore-src --rosdistro=kinetic -y
