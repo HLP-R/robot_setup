@@ -157,15 +157,14 @@
 ## Comment out this section to actually run the file.
 ##------------------------------------------------------------------------------
 
-#echo "Please read and edit this setup script before running it."
-#read -p "Press enter to exit."
-#exit 1
+echo "Please read and edit this setup script before running it."
+read -p "Press enter to exit."
+exit 1
 
 ##------------------------------------------------------------------------------
 ## (End of Blocker)
 ## Bash Definitions
 ##------------------------------------------------------------------------------
-#
 set -ev
 
 ##------------------------------------------------------------------------------
@@ -192,24 +191,14 @@ sudo apt-get install -yq \
   libusb-1.0-0 \
   wget
 
-##########################################################tructions. Or, if you see this command while running the setup
-## script, you've######################
-## E. VARIABLEStructions. Or, if you see this command while running the setup
-## script, you've
-##########################################################tructions. Or, if you see this command while running the setup
-## script, you've######################
-##--------------------------------------------------------tructions. Or, if you see this command while running the setup
-## script, you've----------------------
-## Fill in the name of the robot you're working with belowtructions. Or, if you see this command while running the setup
-## script, you've
-## (all lowercase, no spaces, in quotes).tructions. Or, if you see this command while running the setup
-## script, you've
-## Use "moe" or "barton" etc.tructions. Or, if you see this command while running the setup
-## script, you've
-## DO NOT use "moe1" or "moe2" or your desktop nametructions. Or, if you see this command while running the setup
-## script, you've
-##--------------------------------------------------------tructions. Or, if you see this command while running the setup
-## script, you've----------------------
+################################################################################
+## E. VARIABLES
+################################################################################
+## Fill in the name of the robot you're working with below
+## (all lowercase, no spaces, in quotes).
+## Use "moe" or "barton" etc.
+## DO NOT use "moe1" or "moe2" or your desktop name
+##------------------------------------------------------------------------------
 ROBOT_OVERALL_NAME="your_robot_name_here"
 
 ##------------------------------------------------------------------------------
@@ -232,17 +221,17 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 # Also installs catkin tools, which is a better version of catkin_make
 # Required for all machines and users.
 ##------------------------------------------------------------------------------
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-sudo apt-get update
-sudo apt-get install -yq \
-  python-catkin-tools \
-  python-wstool \
-  ros-kinetic-desktop-full
-sudo rm -f /etc/ros/rosdep/sources.list.d/20-default.list
-sudo rosdep init
-rosdep update
-source /opt/ros/kinetic/setup.bash
+#sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+#sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+#sudo apt-get update
+#sudo apt-get install -yq \
+#  python-catkin-tools \
+#  python-wstool \
+#  ros-kinetic-desktop-full
+#sudo rm -f /etc/ros/rosdep/sources.list.d/20-default.list
+#sudo rosdep init
+#rosdep update
+#source /opt/ros/kinetic/setup.bash
 
 ##------------------------------------------------------------------------------
 # Quality-of-life tools and settings
@@ -251,43 +240,43 @@ source /opt/ros/kinetic/setup.bash
 ## For mobile bases, can be useful on development machines too:
 ## These packages allow easily teleoperating the robot using the keyboard or a
 ## joystick.
-sudo apt-get install -yq \
-  ros-kinetic-teleop-twist-joy \
-  ros-kinetic-teleop-twist-keyboard
+#sudo apt-get install -yq \
+#  ros-kinetic-teleop-twist-joy \
+#  ros-kinetic-teleop-twist-keyboard
 
 ## Required to communicate with peripherals such as the face LEDs.
 #sudo apt-get install -yq \
 #  ros-kinetic-rosserial-python
 
 ## chrony ensures your clock is synchronized with the others on the network
-sudo apt-get install -yq ros-kinetic-desktop-full chrony
+#sudo apt-get install -yq ros-kinetic-desktop-full chrony
 
 ## Code editors
 ## Dependencies for Sublime Text editor (from https://www.sublimetext.com/docs/3/linux_repositories.html#apt)
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-echo "deb https://download.sublimetext.com/ apt/dev/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+#wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+#echo "deb https://download.sublimetext.com/ apt/dev/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 ## visual studio code editor (from https://code.visualstudio.com/docs/setup/linux)
-sudo snap install --classic code
+#sudo snap install --classic code
 ## now install everything
-sudo apt-get update
-sudo apt-get install -yq \
-  curl \
-  emacs \
-  geany \
-  sublime-text \
-  terminator \
-  vim
+#sudo apt-get update
+#sudo apt-get install -yq \
+#  curl \
+#  emacs \
+#  geany \
+#  sublime-text \
+#  terminator \
+#  vim
 ## Set the default settings for gedit to be OK for programming
-gsettings set org.gnome.gedit.preferences.editor auto-indent true
-gsettings set org.gnome.gedit.preferences.editor bracket-matching true
-gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
-gsettings set org.gnome.gedit.preferences.editor highlight-current-line true
-gsettings set org.gnome.gedit.preferences.editor insert-spaces true
-gsettings set org.gnome.gedit.preferences.editor tabs-size "uint32 2"
+#gsettings set org.gnome.gedit.preferences.editor auto-indent true
+#gsettings set org.gnome.gedit.preferences.editor bracket-matching true
+#gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
+#gsettings set org.gnome.gedit.preferences.editor highlight-current-line true
+#gsettings set org.gnome.gedit.preferences.editor insert-spaces true
+#gsettings set org.gnome.gedit.preferences.editor tabs-size "uint32 2"
 
 ## Git
 ## A nice graphical Git client
-sudo apt install gitk
+#sudo apt install gitk
 ## Set the git cache to timeout after 1 hour (setting is in seconds)
 #git config --global credential.helper 'cache --timeout=3600'
 ## Set up your Git login
@@ -304,7 +293,7 @@ sudo apt install gitk
 
 ## Allow SSH into this machine
 ## required for robot machines
-sudo apt-get install -yq openssh-server
+#sudo apt-get install -yq openssh-server
 
 ##------------------------------------------------------------------------------
 # Create Workspace
@@ -331,7 +320,7 @@ sudo apt-get install -yq openssh-server
 # robot descriptions.
 # Required for all machines and users.
 ##------------------------------------------------------------------------------
-git clone https://github.com/si-machines/poli2.git -b master
+#git clone https://github.com/si-machines/poli2.git -b master
 
 ##------------------------------------------------------------------------------
 # HLP-R Dependencies Installation
@@ -342,27 +331,27 @@ git clone https://github.com/si-machines/poli2.git -b master
 # Recommended for all machines.
 ##------------------------------------------------------------------------------
 ## control the Kinova Jaco arm
-git clone https://github.com/si-machines/kinova-ros.git -b moe-devel
+#git clone https://github.com/si-machines/kinova-ros.git -b moe-devel
 ## ignore a number of sub-packages that we don't need and cause conflicts
-touch kinova-ros/kinova_moveit/CATKIN_IGNORE
-git clone https://github.com/si-machines/wpi_jaco.git -b develop
+#touch kinova-ros/kinova_moveit/CATKIN_IGNORE
+#git clone https://github.com/si-machines/wpi_jaco.git -b develop
 ## only part of the above package is needed.
 ## ignore a number of sub-packages that we don't need and cause conflicts
 #touch wpi_jaco/jaco_interaction/CATKIN_IGNORE
 #touch wpi_jaco/jaco_teleop/CATKIN_IGNORE
 #touch wpi_jaco/wpi_jaco/CATKIN_IGNORE
 ## control the Robotiq 2-finger gripper
-git clone https://github.com/si-machines/robotiq_85_gripper.git -b master
-git clone https://github.com/GT-RAIL/rail_manipulation_msgs.git -b develop
+#git clone https://github.com/si-machines/robotiq_85_gripper.git -b master
+#git clone https://github.com/GT-RAIL/rail_manipulation_msgs.git -b develop
 ## Used to control the head tilt motor (up/down). We need a specific branch
-git clone https://github.com/RIVeR-Lab/epos_hardware.git -b kinetic-devel
+#git clone https://github.com/RIVeR-Lab/epos_hardware.git -b kinetic-devel
 ## controls head pan motor (side to side)
-git clone https://github.com/ROBOTIS-GIT/DynamixelSDK.git -b 3.5.4
-git clone https://github.com/si-machines/dynamixel-workbench.git -b master
-git clone https://github.com/si-machines/dynamixel-workbench-msgs.git -b master
+#git clone https://github.com/ROBOTIS-GIT/DynamixelSDK.git -b 3.5.4
+#git clone https://github.com/si-machines/dynamixel-workbench.git -b master
+#git clone https://github.com/si-machines/dynamixel-workbench-msgs.git -b master
 ## Delete a conflicting version of the dynamixel code that comes with apt-get
 ## If you clone the packages above you should also uncomment this line.
-sudo apt-get purge ros-kinetic-dynamixel-workbench-toolbox
+#sudo apt-get purge ros-kinetic-dynamixel-workbench-toolbox
 
 
 ##------------------------------------------------------------------------------
@@ -371,20 +360,20 @@ sudo apt-get purge ros-kinetic-dynamixel-workbench-toolbox
 # Recommended for all machines and users
 ##------------------------------------------------------------------------------
 ## utility packages for moving the arm.
-git clone https://github.com/HLP-R/hlpr_manipulation.git -b kinetic-devel
+#git clone https://github.com/HLP-R/hlpr_manipulation.git -b kinetic-devel
 ## don't use robot configurations that use the vector base
-touch hlpr_manipulation/hlpr_manipulation/CATKIN_IGNORE
-touch hlpr_manipulation/hlpr_wpi_jaco_moveit_config/CATKIN_IGNORE
-touch hlpr_manipulation/hlpr_j2s7s300_moveit_config/CATKIN_IGNORE
-touch hlpr_manipulation/hlpr_wpi_jaco_moveit_config_two_arms/CATKIN_IGNORE
+#touch hlpr_manipulation/hlpr_manipulation/CATKIN_IGNORE
+#touch hlpr_manipulation/hlpr_wpi_jaco_moveit_config/CATKIN_IGNORE
+#touch hlpr_manipulation/hlpr_j2s7s300_moveit_config/CATKIN_IGNORE
+#touch hlpr_manipulation/hlpr_wpi_jaco_moveit_config_two_arms/CATKIN_IGNORE
 ## Kinesthetic teaching allows you to record and play back demonstrations
 ## on Poli's arm
-git clone https://github.com/HLP-R/hlpr_kinesthetic_teaching.git \
-    -b kinetic-devel
+#git clone https://github.com/HLP-R/hlpr_kinesthetic_teaching.git \
+#    -b kinetic-devel
 ## Speech recognition and synthesis packages
-git clone https://github.com/HLP-R/hlpr_speech.git -b kinetic-devel
+#git clone https://github.com/HLP-R/hlpr_speech.git -b kinetic-devel
 ## Utility packages for turning the head
-git clone https://github.com/HLP-R/hlpr_lookat.git -b kinetic-devel
+#git clone https://github.com/HLP-R/hlpr_lookat.git -b kinetic-devel
 
 ##------------------------------------------------------------------------------
 # Onboard Robot Machine Setup
@@ -393,10 +382,10 @@ git clone https://github.com/HLP-R/hlpr_lookat.git -b kinetic-devel
 ##------------------------------------------------------------------------------
 ## This file contains a number of environment variables that help define the
 ## robot configuration. The following four lines are all one command.
-echo "
-  # Source useful environment variables that define the robot platform.
-  # These lines were added by the Poli2 setup.sh script.
-source ${WORKSPACE_PATH}/poli2/poli2_launch/config/poli_RMP.bash" >> ~/.bashrc
+#echo "
+#  # Source useful environment variables that define the robot platform.
+#  # These lines were added by the Poli2 setup.sh script.
+#source ${WORKSPACE_PATH}/poli2/poli2_launch/config/poli_RMP.bash" >> ~/.bashrc
 
 ## these commands create a custom desktop background based on the hostname
 ## recommended for robot machines
@@ -407,16 +396,16 @@ source ${WORKSPACE_PATH}/poli2/poli2_launch/config/poli_RMP.bash" >> ~/.bashrc
 #gsettings set org.gnome.desktop.background picture-uri "file://${HOME}/robot_setup/bg_image.png"
 
 ## Delete useless folders - if they're empty and exist
-if [ -d "${HOME}/Documents" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Documents"; fi
-if [ -d "${HOME}/Music" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Music"; fi
-if [ -d "${HOME}/Pictures" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Pictures"; fi
-if [ -d "${HOME}/Public" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Public"; fi
-if [ -d "${HOME}/Templates" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Templates"; fi
-if [ -d "${HOME}/Videos" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Videos"; fi
-rm -f ${HOME}/examples.desktop
+#if [ -d "${HOME}/Documents" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Documents"; fi
+#if [ -d "${HOME}/Music" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Music"; fi
+#if [ -d "${HOME}/Pictures" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Pictures"; fi
+#if [ -d "${HOME}/Public" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Public"; fi
+#if [ -d "${HOME}/Templates" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Templates"; fi
+#if [ -d "${HOME}/Videos" ]; then rmdir --ignore-fail-on-non-empty "${HOME}/Videos"; fi
+#rm -f ${HOME}/examples.desktop
 
 ## Clean up the Unity launcher
-gsettings set com.canonical.Unity.Launcher favorites "['application://firefox.desktop']"
+#gsettings set com.canonical.Unity.Launcher favorites "['application://firefox.desktop']"
 
 ##------------------------------------------------------------------------------
 # Onboard Robot Machine Setup (Main Acount)
@@ -427,13 +416,13 @@ gsettings set com.canonical.Unity.Launcher favorites "['application://firefox.de
 # i.e. run it on moe@moe1 and barton@barton2, but not adam@moe1 or taylor@lupe2.
 ##------------------------------------------------------------------------------
 ## add udev rule for kinova arm
-sudo rm -f /etc/udev/rules.d/10-kinova-arm.rules
-sudo ln -s ${WORKSPACE_PATH}/kinova-ros/kinova_driver/udev/10-kinova-arm.rules \
-  /etc/udev/rules.d/10-kinova-arm.rules
+#sudo rm -f /etc/udev/rules.d/10-kinova-arm.rules
+#sudo ln -s ${WORKSPACE_PATH}/kinova-ros/kinova_driver/udev/10-kinova-arm.rules \
+#  /etc/udev/rules.d/10-kinova-arm.rules
 ## Add udev rule for epos motor
-sudo rm -f /etc/udev/rules.d/90-ftd2xx.rules
-sudo ln -s ${WORKSPACE_PATH}/epos_hardware/epos_hardware/90-ftd2xx.rules \
-  /etc/udev/rules.d/90-ftd2xx.rules
+#sudo rm -f /etc/udev/rules.d/90-ftd2xx.rules
+#sudo ln -s ${WORKSPACE_PATH}/epos_hardware/epos_hardware/90-ftd2xx.rules \
+#  /etc/udev/rules.d/90-ftd2xx.rules
 ## Other peripherals
 #sudo rm -f /etc/udev/rules.d/10-local.rules
 #sudo ln -s ${HOME}/robot_setup/${ROBOT_OVERALL_NAME}/udev.rules \
@@ -465,13 +454,13 @@ sudo ln -s ${WORKSPACE_PATH}/epos_hardware/epos_hardware/90-ftd2xx.rules \
 
 ## If you're on a robot with two LIDARs, (including Moe, which has 2 on its
 ## segway base), you'll need the following package for navigation
-git clone https://github.com/si-machines/ira_laser_tools.git -b kinetic
+#git clone https://github.com/si-machines/ira_laser_tools.git -b kinetic
 
 ## If your robot has a segway base you'll need these two
-git clone https://github.com/StanleyInnovation/segway_v3.git -b master
-git clone https://github.com/ros-drivers/smart_battery_msgs.git -b master
+#git clone https://github.com/StanleyInnovation/segway_v3.git -b master
+#git clone https://github.com/ros-drivers/smart_battery_msgs.git -b master
 ## Fixes annoying warnings related to hector_pose_estimation XML from being printed.
-sudo wget https://raw.githubusercontent.com/tu-darmstadt-ros-pkg/hector_localization/catkin/hector_pose_estimation/hector_pose_estimation_nodelets.xml -P /opt/ros/kinetic/share/hector_pose_estimation/
+#sudo wget https://raw.githubusercontent.com/tu-darmstadt-ros-pkg/hector_localization/catkin/hector_pose_estimation/hector_pose_estimation_nodelets.xml -P /opt/ros/kinetic/share/hector_pose_estimation/
 
 ##------------------------------------------------------------------------------
 # Extra HLP-R packages
@@ -502,14 +491,14 @@ sudo wget https://raw.githubusercontent.com/tu-darmstadt-ros-pkg/hector_localiza
 # Required for all machines and users
 ##------------------------------------------------------------------------------
 ## Automatically find and install needed dependencies
-rosdep install --from-paths . --ignore-src --rosdistro=kinetic -y
+#rosdep install --from-paths . --ignore-src --rosdistro=kinetic -y
 
 ## Build your workspace
-cd ..
-catkin build
+#cd ..
+#catkin build
 
 ## assuming that the build completed, source your workspace
-source devel/setup.bash
+#source devel/setup.bash
 
 ## Add useful shortcuts to your bashrc so they are automatically accessible
 ## For more details, read shortcuts.bash (at the path below).
@@ -520,9 +509,9 @@ source devel/setup.bash
 ## The ROBOT_NAME environment variable is checked by a few different packages
 ## so that they know whether to use behavior for Poli2, Poli1, or a simulated
 ## 2D arm.
-echo "
-export ROBOT_NAME='poli2'
-" >> ~/.bashrc
+#echo "
+#export ROBOT_NAME='poli2'
+#" >> ~/.bashrc
 
 ## You're done with this section! Go back to the top of the file and continue
 ## the instructions. Or, if you see this command while running the setup
