@@ -35,7 +35,10 @@
  #         it, remove it since you've verified that it doesn't work.
  #   8. If you have to run more commands that aren't in this file, add them
  #      to this file along with documentation.
- #   9. Commit and push your changes to the script immediately after using it.
+ #   9. Commit and push your changes to the script immediately after using it
+ #      (but do not commit the un-commenting changes you made). You may want to
+ #      do this by simply editing the script using the GitHub web interface
+ #      rather than having to re-comment out all the lines before committing.
 
 ################################################################################
 ## B. AUTHOR AND COPYRIGHT INFORMATION
