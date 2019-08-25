@@ -188,7 +188,6 @@ sudo apt-get update && sudo apt-get -y upgrade
 sudo apt-get install -yq \
   apt-transport-https \
   apt-utils \
-  libusb-1.0-0 \
   wget
 
 ################################################################################
@@ -232,6 +231,12 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #sudo rosdep init
 #rosdep update
 #source /opt/ros/kinetic/setup.bash
+
+## Install other ROS-specific system dependencies
+#sudo apt-get install -yq \
+#  libusb-1.0-0 \
+#  ros-kinetic-moveit-fake-controller-manager \
+#  ros-kinetic-moveit-simple-controller-manager
 
 ##------------------------------------------------------------------------------
 # Quality-of-life tools and settings
