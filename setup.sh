@@ -515,7 +515,7 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 #WORKSPACE_ROOT="$(dirname "$WORKSPACE_PATH")"
 #echo "source ${WORKSPACE_ROOT}/devel/setup.bash" >> ~/.bashrc
-#echo "source ~/robot_setup/shortcuts.bash" >> ~/.bashrc
+#echo "source ${HOME}/robot_setup/shortcuts.bash" >> ~/.bashrc
 #echo "set_${ROBOT_OVERALL_NAME}_master" >> ~/.bashrc
 
 ## The ROBOT_NAME environment variable is checked by a few different packages
