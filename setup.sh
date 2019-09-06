@@ -488,7 +488,7 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 ## In the future, you should use ORP (object recognition and perception) for
 ## your perception needs. Written by Adam Allevato (former lab member)
 ## If you need access, contact Adam directly (adam.d.allevato@gmail.com)
-#git clone https://github.com/Kukanani/orp.git
+#git clone https://github.com/UTNuclearRobotics/orp.git
 
 ## The following package has outdated launch files and is no longer necessary
 #git clone https://github.com/HLP-R/hlpr_common.git -b kinetic-devel
@@ -515,7 +515,7 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 #WORKSPACE_ROOT="$(dirname "$WORKSPACE_PATH")"
 #echo "source ${WORKSPACE_ROOT}/devel/setup.bash" >> ~/.bashrc
-#echo "source ${WORKSPACE_PATH}/poli2/setup/shortcuts.bash" >> ~/.bashrc
+#echo "source ~/robot_setup/shortcuts.bash" >> ~/.bashrc
 #echo "set_${ROBOT_OVERALL_NAME}_master" >> ~/.bashrc
 
 ## The ROBOT_NAME environment variable is checked by a few different packages
