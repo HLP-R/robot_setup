@@ -516,6 +516,8 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #WORKSPACE_ROOT="$(dirname "$WORKSPACE_PATH")"
 #echo "source ${WORKSPACE_ROOT}/devel/setup.bash" >> ~/.bashrc
 #echo "source ${WORKSPACE_PATH}/poli2/setup/shortcuts.bash" >> ~/.bashrc
+#echo "set_${ROBOT_OVERALL_NAME}_master" >> ~/.bashrc
+
 ## The ROBOT_NAME environment variable is checked by a few different packages
 ## so that they know whether to use behavior for Poli2, Poli1, or a simulated
 ## 2D arm.
@@ -525,4 +527,4 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 
 ## You're done with this section! Go back to the top of the file and continue
 ## the instructions. Or, if you see this command while running the setup
-## script, you've completed the setup process. Restart your terminal.
+## script, you've completed the setup process. Restart your computer.
