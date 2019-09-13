@@ -376,6 +376,10 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #touch hlpr_manipulation/hlpr_wpi_jaco_moveit_config/CATKIN_IGNORE
 #touch hlpr_manipulation/hlpr_j2s7s300_moveit_config/CATKIN_IGNORE
 #touch hlpr_manipulation/hlpr_wpi_jaco_moveit_config_two_arms/CATKIN_IGNORE
+
+## Fixes bug with moveit-commander in hlpr-manipulation
+#pip install --user pyassimp
+
 ## Kinesthetic teaching allows you to record and play back demonstrations
 ## on Poli's arm
 #git clone https://github.com/HLP-R/hlpr_kinesthetic_teaching.git \
