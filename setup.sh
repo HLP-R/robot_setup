@@ -356,7 +356,7 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 ## Used to control the head tilt motor (up/down). We need a specific branch
 #git clone https://github.com/RIVeR-Lab/epos_hardware.git -b kinetic-devel
 ## controls head pan motor (side to side)
-#git clone https://github.com/ROBOTIS-GIT/DynamixelSDK.git -b 3.5.4
+#git clone https://github.com/si-machines/DynamixelSDK.git -b fix-cpu-hog
 #git clone https://github.com/si-machines/dynamixel-workbench.git -b master
 #git clone https://github.com/si-machines/dynamixel-workbench-msgs.git -b master
 ## Delete a conflicting version of the dynamixel code that comes with apt-get
