@@ -341,9 +341,7 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 ## Recommended for all machines.
 ##------------------------------------------------------------------------------
 ## control the Kinova Jaco arm
-#git clone https://github.com/si-machines/kinova-ros.git -b moe-devel
-## ignore a number of sub-packages that we don't need and cause conflicts
-#touch kinova-ros/kinova_moveit/CATKIN_IGNORE
+#git clone https://github.com/Kinovarobotics/kinova-ros.git -b master
 #git clone https://github.com/si-machines/wpi_jaco.git -b develop
 ## only part of the above package is needed.
 ## ignore a number of sub-packages that we don't need and cause conflicts
