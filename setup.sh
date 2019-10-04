@@ -331,6 +331,9 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 ## Required for all machines and users.
 ##------------------------------------------------------------------------------
 #git clone https://github.com/si-machines/poli2.git -b master
+#rm ${HOME}/catkin_ws/src/poli2/poli_pan_tilt/config/tilt_controller.yaml
+#ln -s ${HOME}/robot_setup/${ROBOT_OVERALL_NAME}/tilt_controller.yaml ${HOME}/catkin_ws/src/poli2/poli_pan_tilt/config/tilt_controller.yaml
+
 
 ##------------------------------------------------------------------------------
 ## HLP-R Dependencies Installation
