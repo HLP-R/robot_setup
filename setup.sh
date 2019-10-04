@@ -344,9 +344,7 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 ## Recommended for all machines.
 ##------------------------------------------------------------------------------
 ## control the Kinova Jaco arm
-#git clone https://github.com/si-machines/kinova-ros.git -b moe-devel
-## ignore a number of sub-packages that we don't need and cause conflicts
-#touch kinova-ros/kinova_moveit/CATKIN_IGNORE
+#git clone https://github.com/Kinovarobotics/kinova-ros.git -b master
 #git clone https://github.com/si-machines/wpi_jaco.git -b develop
 ## only part of the above package is needed.
 ## ignore a number of sub-packages that we don't need and cause conflicts
@@ -359,7 +357,7 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 ## Used to control the head tilt motor (up/down). We need a specific branch
 #git clone https://github.com/RIVeR-Lab/epos_hardware.git -b kinetic-devel
 ## controls head pan motor (side to side)
-#git clone https://github.com/ROBOTIS-GIT/DynamixelSDK.git -b 3.5.4
+#git clone https://github.com/si-machines/DynamixelSDK.git -b fix-cpu-hog
 #git clone https://github.com/si-machines/dynamixel-workbench.git -b master
 #git clone https://github.com/si-machines/dynamixel-workbench-msgs.git -b master
 ## Delete a conflicting version of the dynamixel code that comes with apt-get
@@ -379,6 +377,10 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #touch hlpr_manipulation/hlpr_wpi_jaco_moveit_config/CATKIN_IGNORE
 #touch hlpr_manipulation/hlpr_j2s7s300_moveit_config/CATKIN_IGNORE
 #touch hlpr_manipulation/hlpr_wpi_jaco_moveit_config_two_arms/CATKIN_IGNORE
+
+## Fixes bug with moveit-commander in hlpr-manipulation
+#pip install --user pyassimp
+
 ## Kinesthetic teaching allows you to record and play back demonstrations
 ## on Poli's arm
 #git clone https://github.com/HLP-R/hlpr_kinesthetic_teaching.git \
