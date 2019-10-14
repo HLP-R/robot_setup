@@ -440,7 +440,7 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #  /etc/udev/rules.d/90-ftd2xx.rules
 ## Other peripherals
 #sudo rm -f /etc/udev/rules.d/10-local.rules
-#sudo ln -s ${HOME}/robot_setup/${ROBOT_OVERALL_NAME}/udev.rules \
+#sudo ln -s ${HOME}/robot_setup/udev/udev.rules \
 #  /etc/udev/rules.d/10-local.rules
 
 ## Refresh the UDEV rules
