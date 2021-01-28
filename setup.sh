@@ -203,7 +203,7 @@ sudo apt-get install -yq \
 ## Use "moe" or "barton" etc.
 ## DO NOT use "moe1" or "moe2" or your desktop name
 ##------------------------------------------------------------------------------
-ROBOT_OVERALL_NAME="your_robot_name_here"
+ROBOT_OVERALL_NAME="lupe"
 
 ##------------------------------------------------------------------------------
 ## This is where your ROS packages will go. If you'd like, you can change this,
@@ -231,6 +231,7 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #sudo apt-get install -yq \
 #  python-catkin-tools \
 #  python-wstool \
+#  python-pip \
 #  ros-kinetic-desktop-full
 #sudo rm -f /etc/ros/rosdep/sources.list.d/20-default.list
 #sudo rosdep init
@@ -331,8 +332,8 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 ## Required for all machines and users.
 ##------------------------------------------------------------------------------
 #git clone https://github.com/si-machines/poli2.git -b master
-#rm ${HOME}/catkin_ws/src/poli2/poli_pan_tilt/config/tilt_controller.yaml
-#ln -s ${HOME}/robot_setup/${ROBOT_OVERALL_NAME}/tilt_controller.yaml ${HOME}/catkin_ws/src/poli2/poli_pan_tilt/config/tilt_controller.yaml
+##rm ${HOME}/catkin_ws/src/poli2/poli_pan_tilt/config/tilt_controller.yaml #doesn't seem to exist
+##ln -s ${HOME}/robot_setup/${ROBOT_OVERALL_NAME}/tilt_controller.yaml ${HOME}/catkin_ws/src/poli2/poli_pan_tilt/config/tilt_controller.yaml #doesn't seem to exist
 
 
 ##------------------------------------------------------------------------------
@@ -353,7 +354,7 @@ WORKSPACE_PATH="${HOME}/catkin_ws/src"
 #touch wpi_jaco/wpi_jaco/CATKIN_IGNORE
 ## control the Robotiq 2-finger gripper
 #git clone https://github.com/si-machines/robotiq_85_gripper.git -b master
-#git clone https://github.com/GT-RAIL/rail_manipulation_msgs.git -b develop
+#git clone https://github.com/GT-RAIL/rail_manipulation_msgs.git -b kinetic-devel
 ## Used to control the head tilt motor (up/down). We need a specific branch
 #git clone https://github.com/RIVeR-Lab/epos_hardware.git -b kinetic-devel
 ## controls head pan motor (side to side)
